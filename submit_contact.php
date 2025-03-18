@@ -12,15 +12,28 @@
 <?php  
 /** 
  * @param isset() verrifie si une variable existe ;
- * @param !isset() s'il n'exist pas;
-*/
+ * @param !isset() s'il n'exist pas
+ * @param filter_var() contrôler si l'e-mail passé est bien valide, à l'aide de la fonction
+ * @param trim() efface les spaces 
+ * @param empty() vérifier que le message n'est pas vide, à l'aide de la fonction
+ * 
+*/  
 
-    $getData = $_GET;     
-    if  (!isset($getData['email']) || !isset($getData[' Email']) )  {
-        echo('Il faut un email et un message pour soumettre le formulaire.');
-        return;
-    } 
+$getData = $_GET;
+
+if (
+    !isset($getData['email'])
+    || !filter_var($getData['email'], FILTER_VALIDATE_EMAIL)
+    || empty($getData['message'])
+    || trim($getData['message']) === ''
+) {
+    echo('Il faut un email et un message valides pour soumettre le formulaire.');
+    return;
+}
 ;?>
+
+
+
 <h1>Message bien reçu !</h1>
         
         <div class="card">
@@ -32,5 +45,7 @@
             </div>
         </div>
     
+
+
 </body>
 </html>
