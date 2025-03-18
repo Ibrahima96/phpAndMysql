@@ -26,7 +26,7 @@ require_once(__DIR__ . '/functions.php');
                 <div><?php echo $recipe['recipe']; ?></div>
                 <i><?php echo displayAuthor($recipe['author'], $users); ?></i>
             </article>
-        <?php endforeach ?>
+        <?php endforeach ;?>
     </div>
     <!-- inclusion du bas de page du site -->
     <?php require_once(__DIR__ . '/footer.php'); ?>
