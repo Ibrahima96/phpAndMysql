@@ -1,3 +1,3 @@
-la premier branche c'est le début
+git checkout post
 git checkout bicom
 git checkout main
